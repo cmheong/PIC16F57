@@ -16,6 +16,9 @@ Pinout is;
 PIC16F57 target system needs external RC clock at OSC1(pin 27). R is 4K7 and C is 270pF.
 ledblink.asm program needs LED at RB5(pin 15) with series 1K0 resistor.
 
+
+![Schematic](development_system.jpg)
+
 Typical programming command:
 
 $./pk2cmd -PPIC16F57 -Fledblink.hex -M
