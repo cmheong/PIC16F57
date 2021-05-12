@@ -17,7 +17,9 @@ PIC16F57 target system needs external RC clock at OSC1(pin 27). R is 4K7 and C i
 ledblink.asm program needs LED at RB5(pin 15) with series 1K0 resistor.
 
 Typical programming command:
+
 $./pk2cmd -PPIC16F57 -Fledblink.hex -M
+
 PICkit 2 Program Report
 12-5-2021, 14:45:05
 Device Type: PIC16F57
@@ -27,6 +29,7 @@ Program Succeeded.
 Operation Succeeded
 
 To run:
+
 $./pk2cmd -PPIC16F57 -GC -T -R
 
 Read successfully.
