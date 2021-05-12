@@ -1,0 +1,154 @@
+MPASM  5.31                      LEDBLINK.ASM   5-12-2021  6:43:33         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 
+                      00002 ; PIC16F57 Configuration Bit Settings
+                      00003 ; Assembly source line config statements
+                      00004 #include "P16F5X.INC"
+                      00001         LIST
+                      00002 ; P16F5X.INC  Standard Header File, Version 4.00    Microchip Technology, Inc.
+                      00128         LIST
+                      00005 
+                      00006 ; CONFIG
+                      00007 ; __config 0xFFF9
+                      00008 ; 2020-05-10 cmheong __CONFIG _OSC_XT & _WDT_OFF & _CP_OFF
+Warning[205]: Found directive in column 1. (__CONFIG)
+0FFF   0FFB           00009 __CONFIG _RC_OSC & _WDT_OFF & _CP_OFF
+                      00010         
+Warning[205]: Found directive in column 1. (list)
+                      00011 list    p=16F57
+                      00012 
+  00000018            00013 delay_ctr1 equ 18 ; 2021-05-11
+  00000019            00014 delay_ctr2 equ 19 ; 2021-05-11
+                      00015 
+                      00016 
+Warning[205]: Found directive in column 1. (ORG)
+                      00017 ORG 0X0
+0000                  00018 START
+                      00019          ;RB0 RB1 RB5 RB6 RB7 :OUTPUT
+0000   0C00           00020          MOVLW B'00000000'
+0001   0006           00021          TRIS PORTB
+0002                  00022 LOOPY
+0002   0004           00023          clrwdt
+0003   04A6           00024          bcf PORTB,5 
+0004   04A6           00025          bcf PORTB,5 
+0005   04A6           00026          bcf PORTB,5 
+0006   04A6           00027          bcf PORTB,5 
+0007   04A6           00028          bcf PORTB,5 
+0008   04A6           00029          bcf PORTB,5 
+0009   04A6           00030          bcf PORTB,5 
+000A   04A6           00031          bcf PORTB,5 
+000B   04A6           00032          bcf PORTB,5 
+000C   04A6           00033          bcf PORTB,5 
+000D   04A6           00034          bcf PORTB,5 
+000E   04A6           00035          bcf PORTB,5 
+000F   04A6           00036          bcf PORTB,5 
+0010   04A6           00037          bcf PORTB,5 
+0011   04A6           00038          bcf PORTB,5 
+0012   04A6           00039          bcf PORTB,5 
+0013   04A6           00040          bcf PORTB,5 
+0014   04A6           00041          bcf PORTB,5 
+0015   04A6           00042          bcf PORTB,5 
+0016   04A6           00043          bcf PORTB,5 
+0017   04A6           00044          bcf PORTB,5 
+0018   04A6           00045          bcf PORTB,5 
+                      00046 
+0019   0C10           00047          movlw 0x10
+MPASM  5.31                      LEDBLINK.ASM   5-12-2021  6:43:33         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+001A   0039           00048          movwf delay_ctr2
+001B                  00049 delayloop
+001B   0CFF           00050          movlw 0xff
+001C   0038           00051          movwf delay_ctr1
+001D                  00052 delayloop1
+001D   0004           00053          CLRWDT
+001E   0C00           00054          movlw 0x00
+001F   0026           00055          movwf PORTB  ; Red LED Off
+Message[305]: Using default destination of 1 (file).
+0020   02F8           00056          decfsz delay_ctr1
+0021   0A??           00057          goto delayloop1
+                      00058 
+Message[305]: Using default destination of 1 (file).
+0022   02F9           00059          decfsz delay_ctr2
+0023   0A??           00060          goto delayloop
+                      00061 
+0024   0C10           00062          movlw 0x10
+0025   0039           00063          movwf delay_ctr2
+0026                  00064 delayloop3
+0026   0CFF           00065          movlw 0xff
+0027   0038           00066          movwf delay_ctr1
+0028                  00067 delayloop2
+0028   0004           00068          clrwdt
+0029   05A6           00069          bsf PORTB, 5
+Message[305]: Using default destination of 1 (file).
+002A   02F8           00070          decfsz delay_ctr1
+002B   0A??           00071          goto delayloop2
+Message[305]: Using default destination of 1 (file).
+002C   02F9           00072          decfsz delay_ctr2
+002D   0A??           00073          goto delayloop3
+002E   0A??           00074          goto LOOPY
+                      00075 
+Warning[205]: Found directive in column 1. (ORG)
+                      00076 ORG 0x7ff
+07FF   0A??           00077          goto START  ; Note defaults to page 0, address 0
+0FFB                  00078  END
+MPASM  5.31                      LEDBLINK.ASM   5-12-2021  6:43:33         PAGE  3
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+C                                 00000000
+DC                                00000001
+F                                 00000001
+FSR                               00000004
+INDF                              00000000
+LOOPY                             00000002
+NOT_PD                            00000003
+NOT_TO                            00000004
+PA0                               00000005
+PA1                               00000006
+PA2                               00000007
+PCL                               00000002
+PORTA                             00000005
+PORTB                             00000006
+PORTC                             00000007
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+START                             00000000
+STATUS                            00000003
+T0CS                              00000005
+T0SE                              00000004
+TMR0                              00000001
+W                                 00000000
+Z                                 00000002
+_CP_OFF                           00000FFF
+_CP_ON                            00000FF7
+_HS_OSC                           00000FFE
+_LP_OSC                           00000FFC
+_RC_OSC                           00000FFF
+_WDT_OFF                          00000FFB
+_WDT_ON                           00000FFF
+_XT_OSC                           00000FFD
+__16F57                           00000001
+delay_ctr1                        00000018
+delay_ctr2                        00000019
+delayloop                         0000001B
+delayloop1                        0000001D
+delayloop2                        00000028
+delayloop3                        00000026
+
+Errors   :     0
+Warnings :     4 reported,     0 suppressed
+Messages :     4 reported,     0 suppressed
+
+

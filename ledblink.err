@@ -1,0 +1,8 @@
+Warning[205] E:\PIC16F57\LEDBLINK.ASM 9 : Found directive in column 1. (__CONFIG)
+Warning[205] E:\PIC16F57\LEDBLINK.ASM 11 : Found directive in column 1. (list)
+Warning[205] E:\PIC16F57\LEDBLINK.ASM 17 : Found directive in column 1. (ORG)
+Message[305] E:\PIC16F57\LEDBLINK.ASM 56 : Using default destination of 1 (file).
+Message[305] E:\PIC16F57\LEDBLINK.ASM 59 : Using default destination of 1 (file).
+Message[305] E:\PIC16F57\LEDBLINK.ASM 70 : Using default destination of 1 (file).
+Message[305] E:\PIC16F57\LEDBLINK.ASM 72 : Using default destination of 1 (file).
+Warning[205] E:\PIC16F57\LEDBLINK.ASM 76 : Found directive in column 1. (ORG)
