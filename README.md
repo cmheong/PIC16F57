@@ -14,6 +14,7 @@ Operation Succeeded
 
 To run:
 $./pk2cmd -PPIC16F57 -GC -T -R
+
 Read successfully.
 
 Configuration Memory
